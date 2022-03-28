@@ -10,11 +10,15 @@ const useSearchTVShows = ()=> {
 
     const handleSearchTVShows = debounce(async (e)=> {
         const tvShowName = e.target.value;
-        const { status, data } = await searchTVShows(tvShowName);
-        console.log(data)
-        if(tvShowName.trim().length < 2){
+
+        if(tvShowName.trim().length === 0){
             dispatch(setPopularTVShows(popularTVShowsToday)); 
-        } else if(status){
+            return;
+        }
+
+        const { status, data } = await searchTVShows(tvShowName);
+
+        if(status){
             dispatch(setPopularTVShows(data?.results)); 
         }
 

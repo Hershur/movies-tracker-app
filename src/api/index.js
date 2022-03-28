@@ -1,4 +1,4 @@
-import { DEFAULT_LANGUAGE, TV_SHOWS_PER_PAGE } from "../helpers/constants";
+import { DEFAULT_LANGUAGE } from "../helpers/constants";
 import httpService from "../helpers/httpService"
 
 export const getRequestToken = ()=> {
@@ -30,7 +30,7 @@ export const deleteSession = (session_id)=> {
 }
 
 export const getPopularTVShows = ()=> {
-    const url = `https://api.themoviedb.org/3/tv/popular?language=${DEFAULT_LANGUAGE}&page=${TV_SHOWS_PER_PAGE}`;
+    const url = `https://api.themoviedb.org/3/tv/popular?language=${DEFAULT_LANGUAGE}`;
     const response = httpService.get(url);
 
     return response;
