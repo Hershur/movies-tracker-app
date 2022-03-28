@@ -1,18 +1,18 @@
 import debounce from "lodash.debounce";
-import { useDispatch, useSelector } from "react-redux";
-import { searchTVShows } from "../api";
-import { setPopularTVShows } from "../redux/slices/moviesSlice";
+import { useDispatch } from "react-redux";
+import { searchTVShows, getPopularTVShowsSeasons } from "../api";
+import { setPopularTVShows, setPopularTVShowsSeasons } from "../redux/slices/moviesSlice";
+import useGetPopularTVShows from "./useGetPopularTVShows";
 
 const useSearchTVShows = ()=> {
     const dispatch = useDispatch();
-    const popularTVShowsToday = useSelector((state) => state.movies.popularTVShowsToday);
-
+    const { fetchPopularTVShows } = useGetPopularTVShows();
 
     const handleSearchTVShows = debounce(async (e)=> {
         const tvShowName = e.target.value;
 
         if(tvShowName.trim().length === 0){
-            dispatch(setPopularTVShows(popularTVShowsToday)); 
+            fetchPopularTVShows(); 
             return;
         }
 
@@ -21,6 +21,13 @@ const useSearchTVShows = ()=> {
         if(status){
             dispatch(setPopularTVShows(data?.results)); 
         }
+
+        const response = await getPopularTVShowsSeasons(data?.results);
+
+        if(response){
+            dispatch(setPopularTVShowsSeasons(response)); 
+        }
+
 
     }, 1500);
 

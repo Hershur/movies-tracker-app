@@ -36,6 +36,18 @@ export const getPopularTVShows = ()=> {
     return response;
 }
 
+
+export const getPopularTVShowsSeasons = async (popularTVShows)=> {
+    const promises =  popularTVShows.map( async (x) => {
+        let response = await httpService.get(`https://api.themoviedb.org/3/tv/${x.id}?language=${DEFAULT_LANGUAGE}`);
+        return {tvShow: x.name, tvShowId: x.id, seasons: response.data.seasons};
+    });
+
+    const data = await Promise.all(promises);
+
+    return data;
+}
+
 export const getAccountId = (session_id)=> {
     const url = `https://api.themoviedb.org/3/account?session_id=${session_id}`;
     const response = httpService.get(url);

@@ -1,6 +1,6 @@
 import Header from "../../components/Header";
 import { useSelector } from "react-redux";
-import MoviesBox from "../../components/MoviesBox";
+import TVShowsBox from "../../components/TVShowsBox";
 import useGetFavoriteTVShows from "../../hooks/useGetFavoriteTVShows";
 
 
@@ -17,7 +17,7 @@ const Favourites = ()=> {
                 <div className="w-5/6 m-auto pb-8">
                     <h1 className="text-4xl mt-5 mb-5 font-bold">Favorites</h1>
 
-                    <MoviesBox 
+                    <TVShowsBox 
                         tvShows={favoriteTVShows}
                         notFoundText="No favorite tv shows"
                     /> 

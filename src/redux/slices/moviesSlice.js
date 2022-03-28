@@ -4,7 +4,7 @@ const initialState = {
   sessionId: null,
   isLoggedIn: false,
   popularTVShows: null,
-  popularTVShowsToday: null,
+  popularTVShowsSeasons: null,
   favoriteTVShows: null,
 }
 
@@ -24,8 +24,8 @@ const moviesSlice = createSlice({
     setPopularTVShows: (state, action) => {
       state.popularTVShows = action.payload
     },
-    setPopularTVShowsToday: (state, action) => {
-      state.popularTVShowsToday = action.payload
+    setPopularTVShowsSeasons: (state, action) => {
+      state.popularTVShowsSeasons = action.payload
     },
     setFavoriteTVShows: (state, action) => {
       state.favoriteTVShows = action.payload
@@ -40,7 +40,7 @@ export const {
   resetState,
   setPopularTVShows,
   setFavoriteTVShows,
-  setPopularTVShowsToday 
+  setPopularTVShowsSeasons 
 } = moviesSlice.actions
 
 export default moviesSlice.reducer
