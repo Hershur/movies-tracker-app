@@ -33,7 +33,7 @@ const Login = ()=> {
             try {
                 if(request_token && approved && !getSession){
                     const session = await fetchSessionId(request_token);
-                    console.log("session",session);
+
                     if(session?.session_id){
                         dispatch(setIsLoggedIn(true));
                         return window.location.replace('/');

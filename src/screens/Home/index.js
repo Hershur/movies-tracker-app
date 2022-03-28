@@ -2,11 +2,13 @@ import { useSelector } from "react-redux";
 import Header from "../../components/Header";
 import MoviesBox from "../../components/MoviesBox";
 import useGetPopularTVShows from "../../hooks/useGetPopularTVShows";
+import useSearchTVShows from "../../hooks/useSearchTVShows";
 
 
 const Home = ()=> {
     // eslint-disable-next-line no-unused-vars
     const tvShows = useGetPopularTVShows();
+    const { handleSearchTVShows } = useSearchTVShows();
     const popularTVShows = useSelector((state) => state.movies.popularTVShows);
 
 
@@ -20,18 +22,17 @@ const Home = ()=> {
 
                     <div>
                         <input 
+                            onChange={handleSearchTVShows}
                             placeholder="Search TV Shows"
                             type="text" 
                             className="p-2 text-[#3A4259] rounded-lg border-2 bg-[#121829] border-[#11263D] w-80" 
                         />
                     </div>
 
-                    <div className="mt-10 mb-5">
-                        {popularTVShows.length} Items
-                    </div>
 
                     <MoviesBox 
-                        popularTVShows={popularTVShows}
+                        tvShows={popularTVShows}
+                        notFoundText="No tv show found"
                     />
                 </div>
 

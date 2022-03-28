@@ -17,7 +17,7 @@ const useGetSession = ()=> {
         if(status){
             // 30/(60*24) ==> 30mminutes ===> 0.0208333
             Cookies.set('sessionId', `${data.session_id}`, { secure: true, sameSite: 'strict'});
-            console.log("Setting cookie", request_token)
+
             dispatch(setSessionId(data)); 
 
             return data;

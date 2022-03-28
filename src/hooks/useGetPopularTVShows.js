@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getPopularTVShows } from "../api";
-import { setPopularTVShows } from "../redux/slices/moviesSlice";
+import { setPopularTVShows, setPopularTVShowsToday } from "../redux/slices/moviesSlice";
 
 const useGetPopularTVShows = ()=> {
     const dispatch = useDispatch();
@@ -12,6 +12,7 @@ const useGetPopularTVShows = ()=> {
         
         if(status){
             dispatch(setPopularTVShows(data?.results)); 
+            dispatch(setPopularTVShowsToday(data?.results)); 
         }
 
     }, [dispatch]);

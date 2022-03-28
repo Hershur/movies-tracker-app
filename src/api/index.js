@@ -35,3 +35,24 @@ export const getPopularTVShows = ()=> {
 
     return response;
 }
+
+export const getAccountId = (session_id)=> {
+    const url = `https://api.themoviedb.org/3/account?session_id=${session_id}`;
+    const response = httpService.get(url);
+
+    return response;
+}
+
+export const getFavoriteTVShows = (account_id, session_id)=> {
+    const url = `https://api.themoviedb.org/3/account/${account_id}/favorite/tv?language=${DEFAULT_LANGUAGE}&session_id=${session_id}&sort_by=created_at.asc`;
+    const response = httpService.get(url);
+
+    return response;
+}
+
+export const searchTVShows = (tvShowName) => {
+    const url = `https://api.themoviedb.org/3/search/tv?query=${tvShowName}&language=${DEFAULT_LANGUAGE}`;
+    const response = httpService.get(url);
+
+    return response;
+}

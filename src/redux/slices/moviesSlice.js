@@ -3,7 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   sessionId: null,
   isLoggedIn: false,
-  popularTVShows: [],
+  popularTVShows: null,
+  popularTVShowsToday: null,
+  favoriteTVShows: null,
 }
 
 const moviesSlice = createSlice({
@@ -21,6 +23,12 @@ const moviesSlice = createSlice({
     },
     setPopularTVShows: (state, action) => {
       state.popularTVShows = action.payload
+    },
+    setPopularTVShowsToday: (state, action) => {
+      state.popularTVShowsToday = action.payload
+    },
+    setFavoriteTVShows: (state, action) => {
+      state.favoriteTVShows = action.payload
     }
   },
 })
@@ -30,7 +38,9 @@ export const {
   setSessionId, 
   setIsLoggedIn,
   resetState,
-  setPopularTVShows 
+  setPopularTVShows,
+  setFavoriteTVShows,
+  setPopularTVShowsToday 
 } = moviesSlice.actions
 
 export default moviesSlice.reducer
