@@ -56,7 +56,7 @@ const TVShowsBox = ({ tvShows, notFoundText, showCtxtMenu })=> {
                                         className="absolute right-0 bottom-12 bg-white text-black p-4 flex flex-col font-extrabold rounded-lg gap-y-4 w-[10em] text-sm"
                                     >
                                         <div 
-                                            onClick={()=> handleMarkViewedTVShows(x.id)}
+                                            onClick={()=> { handleMarkViewedTVShows(x.id); menuCtxtBox.current[i].style.display = 'none'}}
                                             className="cursor-pointer hover:text-[#7B6EF6]"
                                         >
                                             Mark Viewed

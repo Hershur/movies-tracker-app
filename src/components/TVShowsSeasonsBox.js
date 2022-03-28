@@ -66,7 +66,7 @@ const TVShowsSeasonsBox = ({ tvShowsSeasons, notFoundText, showCtxtMenu })=> {
                                                     className="absolute right-0 bottom-12 bg-white text-black p-4 flex flex-col font-extrabold rounded-lg gap-y-4 w-[10em] text-sm"
                                                 >
                                                     <div 
-                                                        onClick={()=> handleMarkViewedTVShowsSeasons(show.tvShowId, x.id)}
+                                                        onClick={()=> { handleMarkViewedTVShowsSeasons(show.tvShowId, x.id); menuCtxtBoxSeasons.current[`${i}${j}`].style.display = 'none'}}
                                                         className="cursor-pointer hover:text-[#7B6EF6]"
                                                     >
                                                         Mark Viewed
