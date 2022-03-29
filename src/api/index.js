@@ -68,3 +68,11 @@ export const searchTVShows = (tvShowName) => {
 
     return response;
 }
+
+
+export const getTVShowsDetails = (tv_id) => {
+    const url = `https://api.themoviedb.org/3/tv/${tv_id}`;
+    const response = httpService.get(url);
+
+    return response;
+}

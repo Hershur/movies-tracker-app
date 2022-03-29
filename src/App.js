@@ -5,6 +5,7 @@ import Login from './screens/Login';
 import Cookies from 'js-cookie';
 import Favourites from './screens/Favorites';
 import Viewed from './screens/Viewed';
+import TVShowsDetails from './screens/Details/TVShowsDetails';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/favorites" element={<Favourites />} />
         <Route path="/viewed" element={<Viewed />} />
+        <Route path="/details/tv/:tvShowId" element={<TVShowsDetails />} />
       </Routes>
     </BrowserRouter>
   );

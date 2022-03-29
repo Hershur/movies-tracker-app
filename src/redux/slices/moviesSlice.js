@@ -6,6 +6,7 @@ const initialState = {
   popularTVShows: null,
   popularTVShowsSeasons: null,
   favoriteTVShows: null,
+  tvShowDetails: null,
 }
 
 const moviesSlice = createSlice({
@@ -29,6 +30,9 @@ const moviesSlice = createSlice({
     },
     setFavoriteTVShows: (state, action) => {
       state.favoriteTVShows = action.payload
+    },
+    setTVShowDetails: (state, action) => {
+      state.tvShowDetails = action.payload
     }
   },
 })
@@ -40,7 +44,8 @@ export const {
   resetState,
   setPopularTVShows,
   setFavoriteTVShows,
-  setPopularTVShowsSeasons 
+  setPopularTVShowsSeasons,
+  setTVShowDetails 
 } = moviesSlice.actions
 
 export default moviesSlice.reducer
