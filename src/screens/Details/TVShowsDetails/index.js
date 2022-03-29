@@ -48,7 +48,7 @@ const TVShowsDetails = ()=> {
                                 <div className="text-[#8E95A9] text-lg m-4">Genres</div>
                                 <div  className="m-4">
                                     {
-                                        details?.genres.map((x, i, arr) => `${x?.name} ${i !== arr.length - 1 ? ',' : ''} `)
+                                        details?.genres.map((x, i, arr) => `${x?.name}${i !== arr.length - 1 ? ', ' : ''} `)
                                     }    
                                 </div> 
                             </div>
