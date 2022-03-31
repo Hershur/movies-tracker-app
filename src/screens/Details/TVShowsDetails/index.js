@@ -10,9 +10,8 @@ const TVShowsDetails = ()=> {
 
     const details = useSelector((state) => state.movies.tvShowDetails);
     
-    console.log(details);
     return (
-        <div className="bg-[#121829]  text-white">
+        <div className="bg-[#121829] h-[100vh] overflow-auto  text-white">
             <Header />
 
             <div className="flex items-center justify-center">
